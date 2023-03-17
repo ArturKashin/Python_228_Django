@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<div class="container">
+    <h1>Описание генератора паролей</h1>
+    <p class="description_text">Для генерирования пароля нужно выбрать количество символов от 6 до 15, будут ли присутствовать
+        в пароле буквы в верхнем регистре, цифры или символы <br><br>
+        Автор проекта: группа <b>Pithon_228</b>
+    </p>
+    <p><a href="{% url 'home' %}">Вернуться на главную</a></p>
+</div>
+</body>
+</html>
