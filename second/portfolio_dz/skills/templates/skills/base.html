@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/setka.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="row justify__content__end">
+            
+                <ul class="row nav_list col-12">
+                    <li class="nav_item col-2"><a href="{% url 'index'%}">Главная</a></li>
+                    <li class="nav_item col-2"><a href="">Блог</a></li>
+                    <li class="nav_item col-2"><a href="">Резюме</a></li>
+                </ul>
+                
+                <div class="line col-10">    	
+       			</div>
+       			
+            </div>
+        </div>
+        
+        
+    </nav>
+    {% block content %}
+
+    {% endblock %}
+    <footer>
+    	<div class="container">
+            <div class="row justify__content__end">
+                
+                <div class="line col-10">    	
+       			</div>
+       			
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

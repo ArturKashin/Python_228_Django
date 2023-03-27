@@ -1,0 +1,33 @@
+<!--наследование html разметки от базового файла-->
+{% extends 'skills/base.html' %}
+<!--подключения статических данных из папки static-->
+{% load static %}
+{% block content %}
+
+<h1>Портфолио разработчика</h1>
+
+<div class="img">
+    <!--загрузить статическое изображение из папки static-->
+    <img src="{% static 'skills/wc.jpg' %}" alt="">
+</div>
+
+<h2>Стек технологий:</h2>
+
+<duv class="block">
+    <!--Циклом проходим по объекту базы данных views.py/projects-->
+    {% for project in projects %}
+        <div class="element">
+            <div>
+                <!--из базы берется путь к картинке, добавляя url в конце-->
+                <img src="{{ project.image.url }}" alt="">
+            </div>
+            <div class="text">
+                <!--из базы берутся данные-->
+                <!--target="_blank" для открытия ссылки в новой вкладке-->
+                <h2><a href="{{ project.url }}" target="_blank">{{ project.title }}</a></h2>
+                <p>{{ project.description }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</duv>
+{% endblock %}

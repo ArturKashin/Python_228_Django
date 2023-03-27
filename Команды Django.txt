@@ -1,0 +1,38 @@
+Django Python
+
+cd .\деректория\  --  зайти в директорию проекта
+cd .\..\  -- выйти из дериктории
+
+django-admin.exe startproject название проекта  -- создание проекта
+python .\manage.py runserver  -- запуск сервера проекта
+
+python .\manage.py startapp название приложения  -- создания приложения в проекте
+	! Регистрация проложения в settings.py/ INSTALLED_APPS =['название_проекта.apps.Название_проектаConfig']
+
+приложение\models.py  -- для создания таблицы в базе данных на основе класса
+	class Название таблицы(models.Model):
+		название поля = тип поля(см. Документацию)
+pip install Pillow - установка плагина для models.ImageFild()
+
+! После создания таблицы выполняем ее миграцию db
+	python manage.py makemigrations  -- 1й шаг миграции
+	python manage.py migrate  --  2й шаг миграции
+
+python manage.py createsuperuser  -- создание суперпользователя
+
+! Регистрация модели из db:
+	from .models import Модель
+	admin.site.register(Модель)
+
+! Указания пути для сохранения медиа файлов settings.py:	
+	MEDIA_URL = 'media/'
+	MEDIA_ROOT = BASE_DIR / 'media'
+
+! Просмотр медиа из кабинета суперюзера:
+	urls.py/
+		from django.conf.urls.static import static
+		from django.conf import settings
+		urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+	

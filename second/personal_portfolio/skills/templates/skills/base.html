@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--подключения статических данных из папки static-->
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    добавление фавикона-->
+    <link rel="icon" href="{% static 'skills/favicon.ico' %}" type="image/favicon.ico">
+    <!--подключение стилей из папки static-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="menu">
+        <div class="wrap">
+            <div class="logo">
+                <a href="{% url 'index' %}">
+                    <img src="{% static 'skills/logo.png' %}" alt="">
+                </a>
+            </div>
+            <ul>
+                <li><a href="{% url 'index' %}">Главная</a></li>
+                <li><a href="{% url 'blog:blogs' %}">Блог</a></li>
+<!--                ссылка на pdf документ-->
+                <li><a href="{% static 'skills/resume.pdf' %}" target="_blank">Резюме</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <div class="wrap">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </div>
+</body>
+
+</html>
