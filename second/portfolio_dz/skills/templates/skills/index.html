@@ -9,9 +9,13 @@
                 <div class="row col-12 index_logo">
                     <img class="col-12 index_logo_img" src="{% static 'skills/logo.png' %}" alt="">
                 </div>
-                
+
+                <div class="col-12 row">
+                    <h1 class="col-12 index_skills_h1">Лучшие рецепты со всего мира</h1>
+                </div>
+
                 {% for project in projects %}
-                <div class="row col-4">
+                <div class="row col-4 block_skills">
                 <div class="row skills col-12">
                     <div class="row col-12 index_skills_h2">
                         <h2 class="col-12 skills_h2"><a href="" target="_blank">{{ project.title }}</a></h2>

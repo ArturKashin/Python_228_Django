@@ -12,11 +12,26 @@
     <nav>
         <div class="container">
             <div class="row justify__content__end">
-            
-                <ul class="row nav_list col-12">
-                    <li class="nav_item col-2"><a href="{% url 'index'%}">Главная</a></li>
-                    <li class="nav_item col-2"><a href="">Блог</a></li>
-                    <li class="nav_item col-2"><a href="">Резюме</a></li>
+
+                {% if user.is_authenticated %}
+                <ul class="row nav_list col-5">
+                    <form action="{% url 'logoutuser' %}" method="post" class="col-4">
+                        {% csrf_token %}
+                        <button class="exit_btn">Выйти</button>
+                    </form>
+                    <li class="nav_user col-7">{{ user.username }}</li>
+                </ul>
+                {% else %}
+                <ul class="row nav_list col-5">
+                    <li class="nav_item col-4"><a href="{% url 'loginuser' %}">Войти</a></li>
+                    <li class="nav_item col-7"><a href="{% url 'signupuser' %}">Зарегистрироваться</a></li>
+                </ul>
+                {% endif %}
+
+                <ul class="row nav_list col-7">
+                    <li class="nav_item col-3"><a href="{% url 'index'%}">Главная</a></li>
+                    <li class="nav_item col-3"><a href="">Блог</a></li>
+                    <li class="nav_item col-3"><a href="">Резюме</a></li>
                 </ul>
                 
                 <div class="line col-10">    	

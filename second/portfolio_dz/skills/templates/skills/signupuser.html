@@ -1,0 +1,23 @@
+{% extends 'skills/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify__content__center">
+
+        <h2 class="col-12 signupuser_h2">Регистрация</h2>
+        <div class="col-12 error">
+            <small>{{ error }}</small>
+        </div>
+        <form action="" method="post" class="register col-6">
+<!--            Обязательно к добавлению для защиты данных-->
+            {% csrf_token %}
+
+            {{ form.as_p }}
+            <button class="signupuser_btn">Зарегистрироваться</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

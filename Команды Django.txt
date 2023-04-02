@@ -1,7 +1,7 @@
 Django Python
 
-cd .\деректория\  --  зайти в директорию проекта
-cd .\..\  -- выйти из дериктории
+cd .\директория\  --  зайти в директорию проекта
+cd .\..\  -- выйти из директории
 
 django-admin.exe startproject название проекта  -- создание проекта
 python .\manage.py runserver  -- запуск сервера проекта
@@ -12,6 +12,13 @@ python .\manage.py startapp название приложения  -- созда
 приложение\models.py  -- для создания таблицы в базе данных на основе класса
 	class Название таблицы(models.Model):
 		название поля = тип поля(см. Документацию)
+
+		models.ForeignKey(User, on_delete=models.CASCADE)  -- Создание связей между моделями через класс
+            models.CASCADE - если пользователь будет удален, то удалятся все задачи
+            models.PROTECTED - запрещает удалять пользователя, пока у него есть задачи
+            models.SET_NULL - задачи останутся в базе, даже при удалении пользователя, но значение в поле задачи изменится на NULL
+            models.SET_DEFAULT - задачи останутся в базе, даже при удалении пользователя, но значение в поле задачи изменится на значение по умолчанию
+
 pip install Pillow - установка плагина для models.ImageFild()
 
 ! После создания таблицы выполняем ее миграцию db
@@ -34,5 +41,5 @@ python manage.py createsuperuser  -- создание суперпользова
 		from django.conf import settings
 		urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-
+!
 	
